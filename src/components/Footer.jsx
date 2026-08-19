@@ -185,8 +185,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar matching reference */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-400 gap-3">
+        <div className="pt-6 flex flex-col md:flex-row items-center justify-between text-[11px] text-gray-400 gap-3">
           <p>© 2024 TravelGo. All Rights Reserved.</p>
+          <p className="text-xs font-medium text-gray-300">
+            Designed by <span className="text-[#38bdf8] font-bold tracking-wide">Rishi Biswas</span>
+          </p>
           <div className="flex items-center space-x-4">
             <Link href="/about" className="hover:text-white transition-colors">
               Privacy Policy

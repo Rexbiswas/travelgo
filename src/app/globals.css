@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --primary-blue: #0284c7;
-  --primary-dark-blue: #0b1e36;
-  --accent-blue: #2563eb;
-  --bg-light: #f8fafc;
-  --card-border: #e2e8f0;
+  --primary-purple: #652BE8;
+  --primary-purple-hover: #5320c7;
+  --bg-page: #F8F8FC;
+  --text-main: #11152F;
+  --text-secondary: #60647A;
 }
 
 @theme inline {
   --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --color-purple-primary: #652BE8;
+  --color-page-bg: #F8F8FC;
 }
 
 html {
@@ -17,8 +19,8 @@ html {
 }
 
 body {
-  background-color: #ffffff;
-  color: #0f172a;
+  background-color: #F8F8FC;
+  color: #11152F;
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
@@ -30,16 +32,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #F8F8FC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #D8D4F0;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #652BE8;
 }
 
 /* Glassmorphism helpers */
@@ -47,36 +49,20 @@ body {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px -5px rgba(20, 10, 60, 0.08);
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
 }
 
-/* Custom glow and card shadow */
+/* Custom card shadow */
 .card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Pulsing dot for real-time indicator */
-@keyframes pulse-dot {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(0.85);
-  }
-}
-
-.animate-pulse-dot {
-  animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -5px rgba(20, 10, 60, 0.08);
 }

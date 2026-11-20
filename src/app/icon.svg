@@ -1,49 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
   <defs>
-    <!-- Background Gradient: Navy to Vibrant Cyan Blue -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1e36" />
-      <stop offset="50%" stop-color="#0369a1" />
-      <stop offset="100%" stop-color="#0284c7" />
+    <!-- Background Gradient: Rich Vibrant Purple to Deep Violet -->
+    <linearGradient id="travelgoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="50%" stop-color="#652BE8" />
+      <stop offset="100%" stop-color="#5218C5" />
     </linearGradient>
 
-    <!-- Airplane Gradient: Crisp White with Subtle Cyan Tint -->
-    <linearGradient id="planeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#e0f2fe" />
+    <!-- Wing Top Gradient: Pure Crisp White -->
+    <linearGradient id="wingTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F5F3FF" />
     </linearGradient>
 
-    <!-- Trail / Orbit Gradient -->
-    <linearGradient id="orbitGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
-      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.9" />
+    <!-- Wing Bottom Gradient: Subtle Lavender Shading for Origami Depth -->
+    <linearGradient id="wingShade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBE5FF" />
+      <stop offset="100%" stop-color="#D8CCFF" />
     </linearGradient>
 
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0284c7" flood-opacity="0.5" />
+    <!-- Fold Crease Gradient -->
+    <linearGradient id="foldCrease" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DDD2FE" />
+      <stop offset="100%" stop-color="#C4B5FD" />
+    </linearGradient>
+
+    <!-- Soft Drop Shadow for Icon Depth -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#3B0764" flood-opacity="0.35" />
     </filter>
   </defs>
 
   <!-- Rounded Squircle Badge -->
-  <rect width="128" height="128" rx="28" fill="url(#bgGrad)" />
+  <rect width="128" height="128" rx="30" fill="url(#travelgoBg)" />
 
-  <!-- Inner Subtle Border -->
-  <rect x="2" y="2" width="124" height="124" rx="26" fill="none" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.4" />
+  <!-- Inner Specular Border Highlight -->
+  <rect x="2" y="2" width="124" height="124" rx="28" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.25" />
 
-  <!-- Globe / Curved Flight Arc -->
-  <path d="M 24 100 C 35 60, 75 35, 108 44" fill="none" stroke="url(#orbitGrad)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="2 4" opacity="0.8" />
-  
-  <circle cx="24" cy="100" r="3" fill="#38bdf8" />
-  
-  <!-- Stylized Modern Airplane -->
-  <g transform="translate(62, 62) rotate(-35) translate(-36, -36)" filter="url(#glow)">
-    <!-- Airplane Body -->
+  <!-- Dynamic Origami Paper Plane pointing up-right -->
+  <g transform="translate(64, 64) rotate(-8) translate(-64, -64)" filter="url(#softGlow)">
+    <!-- Right / Upper Main Wing -->
     <path 
-      d="M 36 6 C 35 6, 33 12, 33 24 L 6 42 L 6 50 L 33 42 L 33 60 L 24 66 L 24 72 L 36 69 L 48 72 L 48 66 L 39 60 L 39 42 L 66 50 L 66 42 L 39 24 C 39 12, 37 6, 36 6 Z" 
-      fill="url(#planeGrad)" 
+      d="M 104 26 L 30 68 L 56 78 Z" 
+      fill="url(#wingTop)" 
     />
-    <!-- Jet Trail Flare -->
-    <circle cx="36" cy="69" r="2.5" fill="#38bdf8" />
+
+    <!-- Left / Lower Wing with Facet Shading -->
+    <path 
+      d="M 104 26 L 56 78 L 74 102 Z" 
+      fill="url(#wingShade)" 
+    />
+
+    <!-- Center Fold Keel -->
+    <path 
+      d="M 56 78 L 68 89 L 74 102 Z" 
+      fill="url(#foldCrease)" 
+    />
+
+    <!-- Inner Crease Line for High-End Origami Definition -->
+    <path 
+      d="M 104 26 L 56 78" 
+      stroke="#DDD6FE" 
+      stroke-width="1.2" 
+      stroke-linecap="round" 
+    />
   </g>
 </svg>

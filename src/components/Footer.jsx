@@ -2,7 +2,20 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Plane, Send, CheckCircle2 } from 'lucide-react';
+import { 
+  Send, 
+  ShieldCheck, 
+  CreditCard, 
+  Heart, 
+  Globe2, 
+  ArrowUpRight,
+  Bus,
+  Train,
+  Plane,
+  Sparkles
+} from 'lucide-react';
+import { motion } from 'framer-motion';
+import BrandLogo from '@/components/ui/BrandLogo';
 import { useBooking } from '@/context/BookingContext';
 
 export default function Footer() {
@@ -13,191 +26,170 @@ export default function Footer() {
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
-      addToast({
+      addToast?.({
         title: 'Invalid Email',
-        message: 'Please enter a valid email address to subscribe.',
+        message: 'Please enter a valid email address.',
         type: 'error',
       });
       return;
     }
 
     setSubscribed(true);
-    addToast({
-      title: '🎉 Subscribed Successfully!',
-      message: 'Thank you for subscribing to TravelGo exclusive deals & updates!',
+    addToast?.({
+      title: '🎉 Subscribed!',
+      message: 'Thank you for joining TravelGo exclusive deals & alerts!',
       type: 'success',
     });
     setEmail('');
   };
 
-  const quickLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Destinations', href: '/destinations' },
-    { name: 'Hotels', href: '/hotels' },
-    { name: 'Packages', href: '/packages' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+  const bookingLinks = [
+    { name: 'Bus Tickets', href: '/#search' },
+    { name: 'Train Tickets', href: '/#search' },
+    { name: 'Flight Tickets', href: '/#search' },
+    { name: 'Multi-Modal Trips', href: '/#search' },
+    { name: 'Popular Routes', href: '/destinations' },
   ];
 
-  const popularDestinations = [
-    { name: 'Paris', href: '/destinations?focus=paris' },
-    { name: 'Dubai', href: '/destinations?focus=dubai' },
-    { name: 'Switzerland', href: '/destinations?focus=switzerland' },
-    { name: 'Greece', href: '/destinations?focus=greece' },
-    { name: 'Bali', href: '/destinations?focus=bali' },
+  const travelTools = [
+    { name: 'AI Travel Planner', href: '/#why-different' },
+    { name: 'Real-Time Tracking', href: '/#why-different' },
+    { name: 'Price Insights', href: '/#why-different' },
+    { name: 'Smart Refunds', href: '/#why-different' },
+    { name: 'Travel Community', href: '/#why-different' },
+  ];
+
+  const companyLinks = [
+    { name: 'About TravelGo', href: '/about' },
+    { name: 'Contact Support', href: '/contact' },
+    { name: 'Partner Operators', href: '/contact' },
+    { name: 'Privacy Policy', href: '/about' },
+    { name: 'Terms of Service', href: '/about' },
   ];
 
   return (
-    <footer className="bg-[#0b1e36] text-white pt-14 pb-8 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="w-full bg-[#11152F] text-white border-t border-slate-800/80 pt-12 pb-8 mt-6">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main 4 Columns Grid matching reference layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-12 border-b border-slate-800/80">
+        {/* Main 4-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-10 border-b border-slate-800/70">
           
-          {/* Column 1: Brand & Socials */}
-          <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-1.5 group">
-              <span className="text-2xl font-extrabold tracking-tight text-white">
-                Travel<span className="text-[#0284c7]">Go</span>
+          {/* Column 1: Brand & Bio (4 cols) */}
+          <div className="lg:col-span-4 space-y-4">
+            <Link href="/" className="inline-flex items-center gap-2.5 group">
+              <motion.div 
+                whileHover={{ rotate: -8, scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+              >
+                <BrandLogo size={32} />
+              </motion.div>
+              <span className="text-2xl font-black tracking-tight text-white">
+                Travel<span className="text-[#8B5CF6]">Go</span>
               </span>
-              <Plane className="w-5 h-5 text-[#0284c7] transform -rotate-12" />
             </Link>
-            <p className="text-xs text-gray-300 leading-relaxed">
-              Explore the beautiful world with us. Discover handpicked luxury hotels, breathtaking destinations, and personalized itineraries at guaranteed best rates.
+
+            <p className="text-xs sm:text-[13px] text-gray-400 leading-relaxed max-w-sm">
+              One platform for all your travel. Book bus, train, and flight tickets in real time — smart, flexible, and rewarding with AI route planning.
             </p>
-            {/* Social Icons matching screenshot */}
-            <div className="flex items-center space-x-2.5 pt-2">
-              {/* Facebook */}
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center text-gray-300 hover:text-white hover:border-[#0284c7] hover:bg-[#0284c7]/20 transition-colors"
-                aria-label="Facebook"
-              >
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-              {/* Instagram */}
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center text-gray-300 hover:text-white hover:border-[#0284c7] hover:bg-[#0284c7]/20 transition-colors"
-                aria-label="Instagram"
-              >
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </a>
-              {/* Twitter / X */}
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center text-gray-300 hover:text-white hover:border-[#0284c7] hover:bg-[#0284c7]/20 transition-colors"
-                aria-label="Twitter"
-              >
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-              {/* YouTube */}
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center text-gray-300 hover:text-white hover:border-[#0284c7] hover:bg-[#0284c7]/20 transition-colors"
-                aria-label="YouTube"
-              >
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </a>
+
+            {/* Trust indicators */}
+            <div className="flex items-center gap-4 text-xs text-gray-400 pt-1">
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span className="text-[11px] font-semibold text-gray-300">Verified Operators</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-purple-400" />
+                <span className="text-[11px] font-semibold text-gray-300">Smart Refunds</span>
+              </div>
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">
-              QUICK LINKS
+          {/* Column 2: Book Tickets (2 cols) */}
+          <div className="lg:col-span-2">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-3.5">
+              Book Tickets
             </h4>
-            <ul className="space-y-2 text-xs">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-[#0284c7] transition-colors"
+            <ul className="space-y-2 text-xs text-gray-400">
+              {bookingLinks.map((item) => (
+                <li key={item.name}>
+                  <Link 
+                    href={item.href} 
+                    className="hover:text-purple-400 hover:translate-x-0.5 inline-block transition-all"
                   >
-                    {link.name}
+                    {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: Popular Destinations */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">
-              POPULAR DESTINATIONS
+          {/* Column 3: Travel Tools (2 cols) */}
+          <div className="lg:col-span-2">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-3.5">
+              Travel Tools
             </h4>
-            <ul className="space-y-2 text-xs">
-              {popularDestinations.map((dest) => (
-                <li key={dest.name}>
-                  <Link
-                    href={dest.href}
-                    className="text-gray-300 hover:text-[#0284c7] transition-colors"
+            <ul className="space-y-2 text-xs text-gray-400">
+              {travelTools.map((item) => (
+                <li key={item.name}>
+                  <Link 
+                    href={item.href} 
+                    className="hover:text-purple-400 hover:translate-x-0.5 inline-block transition-all"
                   >
-                    {dest.name}
+                    {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 4: Newsletter */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">
-              NEWSLETTER
+          {/* Column 4: Newsletter & Deals (4 cols) */}
+          <div className="lg:col-span-4 space-y-3.5">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Stay Ahead with Travel Deals
             </h4>
-            <p className="text-xs text-gray-300 leading-relaxed mb-3">
-              Subscribe to get our latest travel offers and updates.
+            <p className="text-xs text-gray-400">
+              Get flash sale alerts, promo codes like <span className="text-purple-400 font-bold">FLY20</span> & travel guides directly in your inbox.
             </p>
 
-            <form onSubmit={handleSubscribe} className="space-y-2">
+            <form onSubmit={handleSubscribe} className="flex gap-2">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="w-full px-3.5 py-2 text-xs text-gray-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0284c7]"
+                placeholder="Enter your email address"
+                className="flex-1 px-3 py-2 text-xs rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#652BE8] transition-colors"
               />
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 type="submit"
-                className="w-full bg-[#0284c7] hover:bg-[#0369a1] text-white py-2 px-4 rounded-lg text-xs font-bold transition-colors shadow-sm flex items-center justify-center gap-1.5"
+                className="px-4 py-2 bg-[#652BE8] hover:bg-[#5320c7] text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-md shadow-purple-600/30 transition-colors cursor-pointer"
               >
                 <span>Subscribe</span>
-              </button>
+                <Send className="w-3 h-3" />
+              </motion.button>
             </form>
+
+            <div className="flex items-center gap-2 pt-1 text-[11px] text-gray-500">
+              <CreditCard className="w-3.5 h-3.5 text-gray-400" />
+              <span>Secure payments • Instant digital tickets • Zero spam</span>
+            </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar matching reference */}
-        <div className="pt-6 flex flex-col md:flex-row items-center justify-between text-[11px] text-gray-400 gap-3">
-          <p>© 2024 TravelGo. All Rights Reserved.</p>
-          <p className="text-xs font-medium text-gray-300">
-            Designed by <span className="text-[#38bdf8] font-bold tracking-wide">Rishi Biswas</span>
-          </p>
-          <div className="flex items-center space-x-4">
-            <Link href="/about" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <span>|</span>
-            <Link href="/about" className="hover:text-white transition-colors">
-              Terms & Conditions
-            </Link>
+        {/* Bottom Bar: Copyright & Payment Badges */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+          <p>© {new Date().getFullYear()} TravelGo Inc. All rights reserved.</p>
+
+          <div className="flex items-center gap-4 text-xs text-gray-400">
+            <Link href="/about" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <span>•</span>
+            <Link href="/about" className="hover:text-white transition-colors">Terms of Service</Link>
+            <span>•</span>
+            <Link href="/contact" className="hover:text-white transition-colors">Support Center</Link>
           </div>
         </div>
 

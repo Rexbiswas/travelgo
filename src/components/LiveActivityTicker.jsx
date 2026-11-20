@@ -1,40 +1,48 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Sparkles, MapPin, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Sparkles, X } from 'lucide-react';
 import { liveBookingTickerData } from '@/data/travelData';
 
 export default function LiveActivityTicker() {
+  const pathname = usePathname();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const [closed, setClosed] = useState(false);
 
   useEffect(() => {
-    if (closed) return;
+    if (closed || pathname === '/') return;
 
     const interval = setInterval(() => {
       setVisible(false);
       setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % liveBookingTickerData.length);
+        setCurrentIndex((prev) => (prev + 1) % (liveBookingTickerData?.length || 1));
         setVisible(true);
       }, 600);
     }, 6500);
 
     return () => clearInterval(interval);
-  }, [closed]);
+  }, [closed, pathname]);
 
-  if (closed) return null;
+  // Hide on homepage to match reference screenshot pixel-for-pixel
+  if (closed || pathname === '/') return null;
 
-  const currentItem = liveBookingTickerData[currentIndex];
+  const currentItem = liveBookingTickerData?.[currentIndex] || {
+    name: 'Sarah M.',
+    city: 'New York',
+    item: 'Flight to Paris',
+    time: '2 mins ago'
+  };
 
   return (
     <div className="fixed bottom-5 left-5 z-40 max-w-xs sm:max-w-sm">
       <div
-        className={`bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-3 border border-sky-100 flex items-center gap-3 transition-all duration-500 transform ${
+        className={`bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-3 border border-purple-100 flex items-center gap-3 transition-all duration-500 transform ${
           visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}
       >
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0284c7] to-cyan-500 flex items-center justify-center text-white flex-shrink-0 shadow-sm">
+        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#652BE8] to-purple-500 flex items-center justify-center text-white flex-shrink-0 shadow-sm">
           <Sparkles className="w-4 h-4" />
         </div>
 
@@ -45,16 +53,14 @@ export default function LiveActivityTicker() {
               {currentItem.name} <span className="text-gray-400 font-normal">from {currentItem.city}</span>
             </p>
           </div>
-          <p className="text-[11px] text-[#0284c7] font-semibold truncate mt-0.5">
+          <p className="text-[11px] text-[#652BE8] font-semibold truncate mt-0.5">
             Booked {currentItem.item}
           </p>
-          <span className="text-[9px] text-gray-400">{currentItem.time}</span>
         </div>
 
         <button
           onClick={() => setClosed(true)}
-          className="text-gray-400 hover:text-gray-600 p-1 transition-colors"
-          title="Dismiss alerts"
+          className="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100"
         >
           <X className="w-3.5 h-3.5" />
         </button>

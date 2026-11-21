@@ -32,19 +32,19 @@ export default function StatisticsStrip() {
   ];
 
   return (
-    <section className="w-full bg-[#EAE6F8]/70 border-t border-purple-100/80 py-3.5 mt-3 sm:mt-4">
+    <section className="w-full bg-[#F3EEFF]/80 border-t border-[#E8E6F0] py-4 mt-3 sm:mt-4">
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 items-center justify-between">
           {stats.map((stat) => (
             <div key={stat.id} className="flex items-center justify-center sm:justify-start gap-3">
-              <div className="w-8.5 h-8.5 rounded-lg bg-purple-100/80 flex items-center justify-center flex-shrink-0 shadow-xs">
+              <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center flex-shrink-0 shadow-xs border border-purple-100">
                 {stat.icon}
               </div>
               <div>
-                <span className="text-base sm:text-[18px] font-black text-[#11152F] tracking-tight block leading-none">
+                <span className="text-base sm:text-[18px] font-black text-[#15162D] tracking-tight block leading-none">
                   {stat.number}
                 </span>
-                <span className="text-[11px] text-[#60647A] font-semibold block mt-0.5 leading-none">
+                <span className="text-[11.5px] text-[#666A7D] font-semibold block mt-1 leading-none">
                   {stat.label}
                 </span>
               </div>

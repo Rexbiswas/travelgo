@@ -23,7 +23,7 @@ export default function BenefitsStrip() {
     },
     {
       icon: (
-        <div className="w-4 h-4 rounded-full border border-[#9333EA] flex items-center justify-center font-bold text-[9.5px] text-[#9333EA]">
+        <div className="w-4 h-4 rounded-full border border-[#652BE8] flex items-center justify-center font-bold text-[9.5px] text-[#652BE8]">
           ₹
         </div>
       ),
@@ -31,7 +31,7 @@ export default function BenefitsStrip() {
       desc: 'Earn & redeem points',
     },
     {
-      icon: <Leaf className="w-4 h-4 text-[#16A34A]" />,
+      icon: <Leaf className="w-4 h-4 text-[#16A36A]" />,
       title: 'Greener Travel',
       desc: 'Compare carbon footprint',
     },
@@ -43,20 +43,20 @@ export default function BenefitsStrip() {
         {benefits.map((item, idx) => (
           <motion.div 
             key={idx}
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: idx * 0.08 }}
-            className="flex items-center gap-2.5 p-1 rounded-xl hover:bg-purple-50/40 transition-colors"
+            transition={{ duration: 0.35, delay: idx * 0.06 }}
+            className="flex items-center gap-2.5 p-1.5 rounded-xl hover:bg-[#F3EEFF]/50 transition-colors"
           >
             <div className="flex-shrink-0">
               {item.icon}
             </div>
             <div>
-              <h4 className="text-[13px] font-bold text-[#11152F] leading-snug">
+              <h4 className="text-[13px] font-bold text-[#15162D] leading-snug">
                 {item.title}
               </h4>
-              <p className="text-[11px] text-[#60647A] font-medium leading-tight mt-0.5">
+              <p className="text-[11px] text-[#666A7D] font-medium leading-tight mt-0.5">
                 {item.desc}
               </p>
             </div>

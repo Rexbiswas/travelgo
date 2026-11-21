@@ -22,22 +22,22 @@ export default function HeroSection() {
         {/* Hero Heading & Subtitle with Framer Motion */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <motion.h1 
-            initial={{ opacity: 0, y: -18 }}
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="text-2xl sm:text-3xl lg:text-[40px] font-black tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] leading-tight"
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-2xl sm:text-3xl lg:text-[40px] font-black tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] leading-tight"
           >
             One Platform for All Your{' '}
-            <span className="bg-gradient-to-r from-purple-300 via-purple-400 to-indigo-300 bg-clip-text text-transparent">
+            <span className="text-[#DDD2FE] font-black drop-shadow-[0_2px_8px_rgba(101,43,232,0.8)]">
               Travel
             </span>
           </motion.h1>
 
           <motion.p 
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-1.5 sm:mt-2 text-xs sm:text-[14px] font-medium text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] max-w-xl mx-auto tracking-normal"
+            transition={{ duration: 0.6, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-1.5 sm:mt-2 text-xs sm:text-[14px] font-medium text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)] max-w-xl mx-auto tracking-normal"
           >
             Book Bus, Train & Flight Tickets in Real Time — Smart, Flexible, and Rewarding.
           </motion.p>

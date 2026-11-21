@@ -52,16 +52,16 @@ export default function PopularOffers() {
     <section id="offers" className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-1 pb-3">
       
       {/* Header with View All Offers */}
-      <div className="flex items-center justify-between mb-2">
-        <h2 className="text-lg sm:text-[21px] font-black text-[#11152F] tracking-tight">
+      <div className="flex items-center justify-between mb-2.5">
+        <h2 className="text-lg sm:text-[21px] font-black text-[#15162D] tracking-tight">
           Popular Offers
         </h2>
         <Link 
-          href="/#offers" 
+          href="/offers" 
           className="text-xs font-bold text-[#652BE8] hover:underline flex items-center gap-1 group"
         >
           <span>View All Offers</span>
-          <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
         </Link>
       </div>
 

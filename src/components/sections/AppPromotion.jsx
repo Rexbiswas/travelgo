@@ -18,7 +18,7 @@ export default function AppPromotion() {
             {/* Brand */}
             <div className="flex items-center gap-1">
               <BrandLogo size={14} />
-              <span className="text-[9.5px] font-black text-[#11152F]">Travel<span className="text-[#652BE8]">Go</span></span>
+              <span className="text-[9.5px] font-black text-[#15162D]">Travel<span className="text-[#652BE8]">Go</span></span>
             </div>
 
             {/* Transport tabs */}
@@ -46,7 +46,7 @@ export default function AppPromotion() {
         {/* Title & QR Code */}
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="text-sm sm:text-[15px] font-black text-[#11152F] leading-tight">
+            <h3 className="text-sm sm:text-[15px] font-black text-[#15162D] leading-tight">
               Get the <span className="text-[#652BE8]">TravelGo</span> App
             </h3>
 
@@ -56,21 +56,21 @@ export default function AppPromotion() {
                 <div className="w-3 h-3 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
                   <Check className="w-2 h-2 text-emerald-600 font-bold" />
                 </div>
-                <span className="text-[11px] font-semibold text-[#11152F]">Faster booking</span>
+                <span className="text-[11px] font-semibold text-[#15162D]">Faster booking</span>
               </div>
 
               <div className="flex items-center gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
                   <Check className="w-2 h-2 text-emerald-600 font-bold" />
                 </div>
-                <span className="text-[11px] font-semibold text-[#11152F]">Real-time trip alerts</span>
+                <span className="text-[11px] font-semibold text-[#15162D]">Real-time trip alerts</span>
               </div>
 
               <div className="flex items-center gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
                   <Check className="w-2 h-2 text-emerald-600 font-bold" />
                 </div>
-                <span className="text-[11px] font-semibold text-[#11152F]">Exclusive app-only deals</span>
+                <span className="text-[11px] font-semibold text-[#15162D]">Exclusive app-only deals</span>
               </div>
             </div>
           </div>

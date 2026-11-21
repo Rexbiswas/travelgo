@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { 
   Bus, 
   Train, 
@@ -368,20 +369,30 @@ export default function BookingSearch() {
             })}
           </div>
 
-          {/* Right Side: Multi-Modal Trip Button with Beta badge */}
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            type="button"
-            onClick={() => setMultiModalOpen(true)}
-            className="flex items-center gap-2 text-xs sm:text-[13px] font-bold text-[#11152F] hover:text-[#652BE8] px-3 py-1.5 rounded-xl hover:bg-purple-50 transition-colors self-start sm:self-auto cursor-pointer"
-          >
-            <Network className="w-4 h-4 text-[#652BE8]" />
-            <span>Multi-Modal Trip</span>
-            <span className="text-[10px] font-bold text-[#652BE8] bg-[#EDE8FC] px-2 py-0.5 rounded-full">
-              Beta
-            </span>
-          </motion.button>
+          {/* Right Side: Plan with AI CTA & Multi-Modal Trip Button with Beta badge */}
+          <div className="flex items-center gap-2 self-start sm:self-auto">
+            <Link
+              href="/ai-planner"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-[#652BE8] bg-[#F3EEFF] hover:bg-[#EAE2FC] px-3 py-1.5 rounded-xl transition-colors cursor-pointer"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-[#652BE8]" />
+              <span>Plan with AI</span>
+            </Link>
+
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              type="button"
+              onClick={() => setMultiModalOpen(true)}
+              className="flex items-center gap-2 text-xs sm:text-[13px] font-bold text-[#15162D] hover:text-[#652BE8] px-3 py-1.5 rounded-xl hover:bg-[#F3EEFF] transition-colors cursor-pointer"
+            >
+              <Network className="w-4 h-4 text-[#652BE8]" />
+              <span>Multi-Modal Trip</span>
+              <span className="text-[10px] font-bold text-[#652BE8] bg-[#EDE8FC] px-2 py-0.5 rounded-full">
+                Beta
+              </span>
+            </motion.button>
+          </div>
         </div>
 
         {/* Search Fields Row - Clean Responsive Flex Layout Ensuring All Items Fit in One Line on Desktop */}

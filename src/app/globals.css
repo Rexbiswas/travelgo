@@ -1,17 +1,31 @@
 @import "tailwindcss";
 
 :root {
+  /* TravelGo Design System Tokens */
   --primary-purple: #652BE8;
-  --primary-purple-hover: #5320c7;
+  --primary-purple-hover: #5320C7;
+  --primary-purple-light: #F3EEFF;
   --bg-page: #F8F8FC;
-  --text-main: #11152F;
-  --text-secondary: #60647A;
+  --surface: #FFFFFF;
+  --text-main: #15162D;
+  --text-secondary: #666A7D;
+  --border-subtle: #E8E6F0;
+  --success: #16A36A;
+  --warning: #F59E0B;
 }
 
 @theme inline {
   --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --color-purple-primary: #652BE8;
-  --color-page-bg: #F8F8FC;
+  --color-primary-purple: #652BE8;
+  --color-primary-purple-hover: #5320C7;
+  --color-primary-purple-light: #F3EEFF;
+  --color-bg-page: #F8F8FC;
+  --color-surface: #FFFFFF;
+  --color-text-main: #15162D;
+  --color-text-secondary: #666A7D;
+  --color-border-subtle: #E8E6F0;
+  --color-success: #16A36A;
+  --color-warning: #F59E0B;
 }
 
 html {
@@ -19,8 +33,8 @@ html {
 }
 
 body {
-  background-color: #F8F8FC;
-  color: #11152F;
+  background-color: var(--bg-page);
+  color: var(--text-main);
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
@@ -44,25 +58,39 @@ body {
   background: #652BE8;
 }
 
-/* Glassmorphism helpers */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px -5px rgba(20, 10, 60, 0.08);
+/* Reusable Design System Helpers */
+.travelgo-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E8E6F0;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(21, 22, 45, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-nav {
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
+.travelgo-card:hover {
+  border-color: #D3CEE8;
+  box-shadow: 0 8px 20px -4px rgba(101, 43, 232, 0.08);
 }
 
-/* Custom card shadow */
-.card-hover {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+.btn-primary {
+  background-color: #652BE8;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 0.625rem;
+  transition: all 0.18s ease;
 }
 
-.card-hover:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px -5px rgba(20, 10, 60, 0.08);
+.btn-primary:hover {
+  background-color: #5320C7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(101, 43, 232, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

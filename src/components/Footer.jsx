@@ -52,11 +52,11 @@ export default function Footer() {
   ];
 
   const travelTools = [
-    { name: 'AI Travel Planner', href: '/#why-different' },
-    { name: 'Real-Time Tracking', href: '/#why-different' },
-    { name: 'Price Insights', href: '/#why-different' },
-    { name: 'Smart Refunds', href: '/#why-different' },
-    { name: 'Travel Community', href: '/#why-different' },
+    { name: 'AI Travel Planner', href: '/ai-planner' },
+    { name: 'Journey Tracker', href: '/track-journey' },
+    { name: 'Price Insights', href: '/offers' },
+    { name: 'Smart Refunds', href: '/bookings' },
+    { name: 'Travel Community', href: '/about' },
   ];
 
   const companyLinks = [
